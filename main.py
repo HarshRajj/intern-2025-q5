@@ -16,7 +16,7 @@ def main():
         print("Error: GOOGLE_API_KEY was not found in the .env file.")
         return
 
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=api_key)
+    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=api_key)
     
     # This template includes an instruction to keep answers brief.
     template = """
