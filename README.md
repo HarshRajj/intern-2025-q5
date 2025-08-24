@@ -1,12 +1,16 @@
-# Q5: Chat Memory
+# Chat Memory — CLI Chatbot
+## Overview
 
-This repository contains the solution for Question 5 of the assignment.
+This project implements a professional, minimal CLI chatbot using LangChain and Google Gemini 2.0 Flash. The chatbot maintains context by remembering the last 4 user-assistant turns, enabling more natural and coherent conversations.
 
-## Description
+## Features
 
-A minimal CLI chatbot using LangChain and Google Gemini 2.0 Flash. The chatbot remembers the last 4 user-assistant turns using ConversationBufferMemory.
+- **Conversational Memory:** Remembers the last 4 user-assistant turns using LangChain's `ConversationBufferMemory`.
+- **Google Gemini 2.0 Flash:** Utilizes the latest Gemini conversational model via LangChain integration.
+- **Secure API Key Handling:** Loads your API key from a `.env` file (never hard-coded).
+- **Simple CLI Interface:** Interact with the chatbot directly from your terminal.
 
-## Usage
+## Getting Started
 
 1. **Clone the repository:**
     ```bash
@@ -19,20 +23,40 @@ A minimal CLI chatbot using LangChain and Google Gemini 2.0 Flash. The chatbot r
     pip install -r requirements.txt
     ```
 
-3. **Create a `.env` file** and add your Google API key:
-    ```
-    GOOGLE_API_KEY="YOUR_API_KEY_HERE"
-    ```
+3. **Configure your API key:**
+    - Create a `.env` file in the project root:
+      ```
+      GOOGLE_API_KEY="YOUR_API_KEY_HERE"
+      ```
 
 4. **Run the chatbot:**
     ```bash
     python main.py
     ```
 
-## How it works
-- The chatbot uses LangChain's ConversationBufferMemory to remember the last 4 turns.
-- You can chat with the bot in your terminal. Type `exit` to quit.
+## Example Conversation
+
+```
+🤖 Chatbot is ready! Type 'exit' to end the conversation.
+--------------------------------------------------
+You: Hello!
+AI: Hello! How can I assist you today?
+You: What's the weather like in Paris?
+AI: I don't have real-time weather data, but Paris is often beautiful in the summer!
+You: Remind me what I asked earlier.
+AI: You previously asked about the weather in Paris.
+You: Thanks!
+AI: You're welcome! If you have more questions, feel free to ask.
+You: exit
+🤖 Goodbye!
+```
+
+## How it Works
+
+- The chatbot uses LangChain's `ConversationBufferMemory` to keep track of the last 4 turns (user + assistant = 1 turn).
+- Each new message is processed with the context of recent conversation history.
+- Type `exit` to end the session.
 
 ## Demo
 
-[**▶️ Run on Google Colab**](https://colab.research.google.com/drive/1jwyTm7qqOX7D8GYj9EWVZiWwOpuiipgD?usp=sharing) 
+[**▶️ Run on Google Colab**](https://colab.research.google.com/drive/1jwyTm7qqOX7D8GYj9EWVZiWwOpuiipgD?usp=sharing)
